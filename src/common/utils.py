@@ -1,4 +1,5 @@
 import json
+import argparse
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -6,6 +7,16 @@ from pathlib import Path
 from pyspark.sql import SparkSession
 from winotify import Notification
 from zoneinfo import ZoneInfo
+
+
+def get_league_from_args() -> str:
+    parser = argparse.ArgumentParser(description="Work with a league schedule")
+    parser.add_argument(
+        "league",
+        help="Competition code, for example PL or ELC",
+    )
+
+    return parser.parse_args().league.upper()
 
 def get_london_time_as_string(utc_date: str, utc_time: str) -> str:
     """

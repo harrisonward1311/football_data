@@ -41,7 +41,6 @@ def get_current_matchweek_fixtures(file_path: str, current_matchweek: int) -> li
         (
             match for match in matches
             if match["matchday"] == current_matchweek
-            and "LIV" not in (match["homeTeam_tla"], match["awayTeam_tla"])
         ),
         key=lambda match: (match["date"], match["kickoff_time_utc"]),
     )
