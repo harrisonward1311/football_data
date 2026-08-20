@@ -75,7 +75,6 @@ def write_results(results: list[dict], output_path: str):
     with output_file.open("w") as file:
         json.dump(results, file)
 
-    print(f"Results written to {output_file}")
 
 def get_absolute_path(relative_path: str) -> Path:
     """

@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 from common.utils import get_absolute_path, send_notification, write_results
-from load_2026_schedule.load_functions import fetch_2026_schedule, clean_schedule
+from api_module.load_functions import fetch_2026_schedule, clean_schedule
 from notifications_module.data_retrieval import get_next_liverpool_match
 from notifications_module.messages import next_liverpool_pl_match_message
 

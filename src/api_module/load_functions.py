@@ -54,3 +54,25 @@ def clean_schedule(data: dict):
     ]
 
     return clean_matches    
+
+def get_current_matchweek(competition: str, api_key: str) -> int:
+    """
+    Fetches the current matchweek for a given competition from the football-data.org API.
+
+    Args:
+        competition (str): The competition for which to fetch the current matchweek.
+        api_key (str): The API key for authentication.
+
+    Returns:
+        int: The current matchweek number.
+    """
+
+    url = f"https://api.football-data.org/v4/competitions/{competition}"
+    headers = {"X-Auth-Token": api_key}
+
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()  # raises an error if the request failed
+
+    data = response.json()
+
+    return data["currentSeason"]["currentMatchday"]

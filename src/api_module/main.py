@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 from common.utils import write_results
-from load_2026_schedule.load_functions import fetch_2026_schedule, clean_schedule
+from api_module.load_functions import fetch_2026_schedule, clean_schedule
 
 # Load the API key from .env
 load_dotenv()
