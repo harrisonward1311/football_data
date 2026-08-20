@@ -1,28 +1,20 @@
 import requests
-from dotenv import load_dotenv
-import os
-import json
 from datetime import datetime
 
-from utils import create_spark_session
-
-# Create SparkSession
-spark = create_spark_session()
-
-
-def fetch_2026_schedule(api_key):
+def fetch_2026_schedule(api_key: str, competition: str):
 
     """
-    Fetches the 2026 Premier League schedule from the football-data.org API.
+    Fetches the 2026 schedule from the football-data.org API.
     
     Args:
         api_key (str): The API key for authentication.
+        competition (str): The competition for which to fetch the schedule.
 
     Returns:
         data: The JSON data containing the schedule information.
     """
 
-    url = f"https://api.football-data.org/v4/competitions/PL/matches?season=2026"
+    url = f"https://api.football-data.org/v4/competitions/{competition}/matches?season=2026"
     headers = {"X-Auth-Token": api_key}
 
     response = requests.get(url, headers=headers)
@@ -32,10 +24,10 @@ def fetch_2026_schedule(api_key):
 
     return data
 
-def clean_2026_schedule(data: dict):
+def clean_schedule(data: dict):
 
     """
-    Cleans the 2026 Premier League schedule data by extracting relevant fields.
+    Cleans the schedule data by extracting relevant fields.
     
     Args:
         data (dict): The raw JSON data containing the schedule information.
