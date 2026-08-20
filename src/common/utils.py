@@ -1,4 +1,5 @@
 import json
+import uuid
 from datetime import datetime
 from pathlib import Path
 
@@ -35,6 +36,7 @@ def send_notification(title: str, message: str) -> None:
         title=title,
         msg=message,
     )
+    toast.tag = uuid.uuid4().hex
 
     toast.show()
 
