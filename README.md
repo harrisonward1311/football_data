@@ -1,2 +1,2 @@
 # football_data
-Messing about with footy data 
+Notification system for retrieving upcoming football fixtures.
